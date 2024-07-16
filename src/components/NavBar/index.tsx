@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import style from './style.min.module.css';
 import { BiSolidCameraMovie } from 'react-icons/bi';
-import Lupa from '../buttons/Lupa';
+import HandleSearch from '../buttons/HandleSearch';
 
 const NavBar = () => {
   return (
@@ -23,7 +23,7 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <Lupa />
+      <HandleSearch />
     </nav>
   );
 };
