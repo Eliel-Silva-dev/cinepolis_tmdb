@@ -2,13 +2,13 @@
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';
 import MovieCard from '@/components/MovieCard';
-import { tmdb, Ttdmb } from '@/api/tmdbApi';
+import { tmdb_api, Ttdmb } from '@/api/tmdbApi';
 import { FaStar } from 'react-icons/fa';
 import MovieInfo from '@/components/buttons/InfoMore';
 import { numberFix, formatDecimal } from '@/scripts/formatNum';
 import Slider from '@/components/Slider';
 
-const TMBD = tmdb;
+const TMBD = tmdb_api;
 
 export default function Home() {
   const [topMovies, setTopMovies] = useState([]);

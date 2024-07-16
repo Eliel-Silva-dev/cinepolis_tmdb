@@ -2,7 +2,7 @@
 
 import style from './style.min.module.css';
 import { useSearchParams } from 'next/navigation';
-import { tmdb, TtmdbId } from '@/api/tmdbApi';
+import { tmdb_api, TtmdbId } from '@/api/tmdbApi';
 import { useEffect, useState } from 'react';
 import { FaFilm, FaMoneyBillAlt, FaScroll, FaStar } from 'react-icons/fa';
 import { FaPeopleGroup } from 'react-icons/fa6';
@@ -13,9 +13,9 @@ import {
 } from '@/scripts/formatNum';
 
 const Movie = () => {
-  const moviesURL = tmdb.API__MOVIE_URL;
-  const apiKey = tmdb.API_KEY;
-  const apiImg_w500 = tmdb.API_IMG_w500;
+  const moviesURL = tmdb_api.API__MOVIE_URL;
+  const apiKey = tmdb_api.API_KEY;
+  const apiImg_w500 = tmdb_api.API_IMG_w500;
 
   const searchParams = useSearchParams();
   const id = searchParams.get('id') as string;
@@ -30,7 +30,7 @@ const Movie = () => {
   };
 
   useEffect(() => {
-    const movieIdUrl = `${moviesURL}${id}?${apiKey}${tmdb.API_LANGBR}`;
+    const movieIdUrl = `${moviesURL}${id}?${apiKey}${tmdb_api.API_LANGBR}`;
 
     getMovie(movieIdUrl);
   }, [id]);

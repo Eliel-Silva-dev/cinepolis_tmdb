@@ -1,6 +1,6 @@
 'use client';
 
-const tmdb = {
+const tmdb_api = {
   API_KEY: 'api_key=70662fd4135b92fe0fc87874e13356c4',
   API__MOVIE_URL: 'https://api.themoviedb.org/3/movie/',
   API_MOVIE_SEARCH: 'https://api.themoviedb.org/3/search/movie',
@@ -212,4 +212,4 @@ const genres = [
   },
 ];
 
-export { tmdb, genres };
+export { tmdb_api, genres };

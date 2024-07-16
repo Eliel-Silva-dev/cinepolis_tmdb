@@ -2,7 +2,7 @@
 
 import style from './style.min.module.css';
 import { useEffect, useState } from 'react';
-import { tmdb, Ttdmb, genres } from '@/api/tmdbApi';
+import { tmdb_api, Ttdmb, genres } from '@/api/tmdbApi';
 import MovieCard from '@/components/MovieCard';
 
 const MoviesGenre = () => {
@@ -30,9 +30,9 @@ const MoviesGenre = () => {
   };
 
   useEffect(() => {
-    const urlGenreMovie = `${tmdb.API_MOVIE_GENRE}${encodeURI(
+    const urlGenreMovie = `${tmdb_api.API_MOVIE_GENRE}${encodeURI(
       genresSelected.join(',')
-    )}&${tmdb.API_KEY}${tmdb.API_LANG}`;
+    )}&${tmdb_api.API_KEY}${tmdb_api.API_LANG}`;
 
     getMovie(urlGenreMovie);
   }, [genresSelected]);

@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './style.min.module.css';
-import { tmdb } from '@/api/tmdbApi';
+import { tmdb_api } from '@/api/tmdbApi';
 import { FaStar } from 'react-icons/fa';
 import MovieInfo from '../buttons/InfoMore';
 import { numberFix, formatDecimal } from '@/scripts/formatNum';
@@ -26,7 +26,7 @@ const MovieCard = ({
     <div className={styles.movie_card}>
       <img
         src={
-          poster_path ? tmdb.API_IMG_w342 + poster_path : '/img/ilustrativa.jpg'
+          poster_path ? tmdb_api.API_IMG_w342 + poster_path : '/img/ilustrativa.jpg'
         }
         alt={title}
       />
