@@ -3,7 +3,7 @@
 Este projeto tem o objetivo de fornecer aos usuários informações sobre os filmes lançados até a presente data.
 Informações como uma breve descrição sobre o filme, sua data de lançamento, quantidade de visualizações, orçamento, arrecadação, avaliações de outros usuários e etc.
 
-[Visitar site]()
+[Visitar site](https://cinepolis-tmdb.vercel.app/)
 
 ### Lista com as funcionalidades:
 
