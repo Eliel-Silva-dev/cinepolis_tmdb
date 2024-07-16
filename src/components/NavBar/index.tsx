@@ -9,7 +9,7 @@ const NavBar = () => {
       <div id={style.logo}>
         <BiSolidCameraMovie />
         <h2 className={style.logo_title}>
-          <Link href={'/'}>Cinemania</Link>
+          <Link href={'/'}>Cinepolis</Link>
         </h2>
         <ul id={style.menu}>
           <li>
