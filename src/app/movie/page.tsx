@@ -100,7 +100,7 @@ const Movie = () => {
                     Resumo:{' '}
                   </span>
                 </p>
-                <p>{movie.overview}</p>
+                <p>{movie.overview ? movie.overview : 'Não foi possível buscar o resumo desse filme...'}</p>
               </div>
             </div>
           </>
