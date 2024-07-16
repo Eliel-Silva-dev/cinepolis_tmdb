@@ -1,14 +1,14 @@
-const formatCurrency = (number: number) => {
-  if (number) {
-    return number.toLocaleString('pt-BR', {
+const formatCurrency = (money: number) => {
+  if (money) {
+    return money.toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     });
   }
 };
-const formatDecimal = (number: number) => {
-  if (number) {
-    return number.toLocaleString('pt-BR', {
+const formatDecimal = (count: number) => {
+  if (count) {
+    return count.toLocaleString('pt-BR', {
       style: 'decimal',
     });
   }
