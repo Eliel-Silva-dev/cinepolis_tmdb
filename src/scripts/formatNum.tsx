@@ -13,10 +13,10 @@ const formatDecimal = (count: number) => {
     });
   }
 };
-const numberFixed = (number: number) => {
+const numberFix = (number: number) => {
   if (number) {
     return number.toFixed(1);
   }
 };
 
-export { formatCurrency, formatDecimal, numberFixed };
+export { formatCurrency, formatDecimal, numberFix };

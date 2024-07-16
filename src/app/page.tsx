@@ -4,8 +4,8 @@ import styles from './page.module.css';
 import MovieCard from '@/components/MovieCard';
 import { tmdb, Ttdmb } from '@/api/tmdbApi';
 import { FaStar } from 'react-icons/fa';
-import MovieInfo from '@/components/buttons/MovieInfo';
-import { numberFixed, formatDecimal } from '@/scripts/formatNumber';
+import MovieInfo from '@/components/buttons/InfoMore';
+import { numberFix, formatDecimal } from '@/scripts/formatNum';
 import Slider from '@/components/Slider';
 
 const TMBD = tmdb;
@@ -56,7 +56,7 @@ export default function Home() {
           <div>
             <h2>{firstMovie.title}</h2>
             <p className={styles.clasification}>
-              <FaStar /> {numberFixed(firstMovie.vote_average)} |{' '}
+              <FaStar /> {numberFix(firstMovie.vote_average)} |{' '}
               {`Numero de votos: ${formatDecimal(firstMovie.vote_count)}`}
             </p>
             <p className={styles.decript}>{firstMovie.overview}</p>

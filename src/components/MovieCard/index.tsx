@@ -3,8 +3,8 @@
 import styles from './style.min.module.css';
 import { tmdb } from '@/api/tmdbApi';
 import { FaStar } from 'react-icons/fa';
-import MovieInfo from '../buttons/MovieInfo';
-import { numberFixed, formatDecimal } from '@/scripts/formatNumber';
+import MovieInfo from '../buttons/InfoMore';
+import { numberFix, formatDecimal } from '@/scripts/formatNum';
 
 type PropsMovieCard = {
   poster_path: string;
@@ -32,7 +32,8 @@ const MovieCard = ({
       />
       <p>
         <FaStar />
-        {numberFixed(vote_average)} | {`Total de Votos: ${formatDecimal(vote_count)}`}
+        {numberFix(vote_average)} |{' '}
+        {`Total de Votos: ${formatDecimal(vote_count)}`}
       </p>
       <div className={styles.card_overview}>
         <h2>{title}</h2>

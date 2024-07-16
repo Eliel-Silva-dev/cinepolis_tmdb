@@ -1,0 +1,40 @@
+.main {
+  min-height: 100vh;
+  margin-top: 40px;
+  padding: 20px;
+
+  .form_query {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    input {
+      width: 70%;
+      height: 40px;
+      border-radius: 5px;
+      font-size: 1.7rem;
+      padding-left: 5px;
+
+      &:focus {
+        outline-color: var(--secondary_color);
+        padding: 5px;
+      }
+      &::placeholder {
+        font-size: 1.7rem;
+      }
+    }
+    svg {
+      font-size: 3rem;
+      color: var(--secondary_color);
+    }
+  }
+  .container_search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+}

@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react';
 import { FaFilm, FaMoneyBillAlt, FaScroll, FaStar } from 'react-icons/fa';
 import { FaPeopleGroup } from 'react-icons/fa6';
 import {
-  numberFixed,
+  numberFix,
   formatCurrency,
   formatDecimal,
-} from '@/scripts/formatNumber';
+} from '@/scripts/formatNum';
 
 const Movie = () => {
   const moviesURL = tmdb.API__MOVIE_URL;
@@ -66,7 +66,7 @@ const Movie = () => {
                 <p>
                   Nota:{' '}
                   <span className={style.span}>
-                    <FaStar /> {numberFixed(movie.vote_average)}
+                    <FaStar /> {numberFix(movie.vote_average)}
                   </span>
                 </p>
               </div>
