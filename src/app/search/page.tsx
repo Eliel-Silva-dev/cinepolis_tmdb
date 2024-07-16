@@ -4,14 +4,14 @@ import style from './style.min.module.css';
 import { BiSearchAlt } from 'react-icons/bi';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { tmdb, Ttdmb } from '@/api/tmdbApi';
+import { tmdb_api, Ttdmb } from '@/api/tmdbApi';
 import MovieCard from '@/components/MovieCard';
 
 const SearchMovie = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const TMDB = tmdb;
+  const TMDB = tmdb_api;
 
   const [movieSearch, setMovieSearch] = useState([]);
 
