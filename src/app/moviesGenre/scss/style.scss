@@ -1,0 +1,44 @@
+.main {
+  min-height: 100vh;
+  margin-top: 40px;
+  padding: 10px;
+
+  #genres {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+  }
+
+  .genre {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    background-color: var(--secondary_color);
+    border-radius: 50px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 2px;
+
+    &.active {
+      background-color: red;
+    }
+  }
+  .container_genres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .main {
+    #genres {
+      width: 100%;
+    }
+  }
+}
