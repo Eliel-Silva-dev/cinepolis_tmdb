@@ -1,0 +1,15 @@
+.button {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--secondary_color);
+}
+.button a {
+  font-size: 1.5rem;
+  color: var(--text_color);
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  background-color: var(--secondary_color);
+  text-decoration: none;
+}
