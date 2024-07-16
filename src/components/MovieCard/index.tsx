@@ -37,7 +37,7 @@ const MovieCard = ({
       </p>
       <div className={styles.card_overview}>
         <h2>{title}</h2>
-        <p>{overview}</p>
+        <p>{overview ? overview : 'Não foi possível buscar o resumo desse filme...'}</p>
         <MovieInfo id_movie={id} />
       </div>
     </div>
