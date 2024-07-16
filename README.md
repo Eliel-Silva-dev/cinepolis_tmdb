@@ -20,6 +20,13 @@ Depois de clonar o repositório, instale as dependências rodando o seguinte com
 ```
 npm install
 ```
+
+Faça o build do projeto com o comando:
+
+```
+npm run build
+```
+
 Então você pode iniciar a aplicação rodando o comando:
 
 ```
