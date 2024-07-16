@@ -1,95 +1,90 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+import { useEffect, useState } from 'react';
+import styles from './page.module.css';
+import MovieCard from '@/components/MovieCard';
+import { tmdb, Ttdmb } from '@/api/tmdbApi';
+import { FaStar } from 'react-icons/fa';
+import MovieInfo from '@/components/buttons/MovieInfo';
+import { numberFixed, formatDecimal } from '@/scripts/formatNumber';
+import Slider from '@/components/Slider';
+
+const TMBD = tmdb;
 
 export default function Home() {
+  const [topMovies, setTopMovies] = useState([]);
+  const [firstMovie, setFirstMovie] = useState<Ttdmb>({} as Ttdmb);
+
+  const getMovies = async (url: string) => {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    setTopMovies(data.results);
+
+    setFirstMovie(data.results[0]);
+  };
+
+  const mudaFundo = (urlImg: string) => {
+    const headerImg = document.getElementById('header') as HTMLElement;
+
+    headerImg.style.backgroundImage = `url('${urlImg}')`;
+  };
+
+  useEffect(() => {
+    const moviesNowPlaying = TMBD.API_NOW_PLAYING + TMBD.API_LANGBR;
+
+    getMovies(moviesNowPlaying);
+  }, []);
+
+  useEffect(() => {
+    if (!firstMovie) {
+      return;
+    } else {
+      const urlposter = firstMovie.backdrop_path;
+
+      if (urlposter) {
+        const imgH = TMBD.API_IMG_original + urlposter;
+
+        mudaFundo(imgH);
+      }
+    }
+  }, [firstMovie]);
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+      {firstMovie.poster_path && (
+        <section id="header" className={styles.header}>
+          <div>
+            <h2>{firstMovie.title}</h2>
+            <p className={styles.clasification}>
+              <FaStar /> {numberFixed(firstMovie.vote_average)} |{' '}
+              {`Numero de votos: ${formatDecimal(firstMovie.vote_count)}`}
+            </p>
+            <p className={styles.decript}>{firstMovie.overview}</p>
+            <MovieInfo id_movie={firstMovie.id} />
+          </div>
+        </section>
+      )}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {topMovies.length > 0 && (
+        <section className={styles.container}>
+          <h3 className={styles.title_sec}>
+            Filmes em destaque nesse momento:
+          </h3>
+          <Slider>
+            {topMovies.map((movie: Ttdmb) => (
+              <MovieCard
+                key={movie.id}
+                poster_path={movie.poster_path}
+                vote_average={movie.vote_average}
+                title={movie.title}
+                vote_count={movie.vote_count}
+                overview={movie.overview}
+                id={movie.id}
+              />
+            ))}
+          </Slider>
+        </section>
+      )}
     </main>
   );
 }
